@@ -1,23 +1,26 @@
 import { Box, ThemeProvider } from '@mui/material'
-import { Typography } from '@mui/material'
 import { Layout } from './components/Layout'
-import { appThema } from './assets/thema'
+import { appTheme } from './assets/theme'
+import { Route, Routes } from 'react-router'
+import { CreateProduto } from './features/produtos/CreateProduto'
+import { ListProduto } from './features/produtos/ListProduto'
 
 function App() {
   return (
-    <ThemeProvider theme={appThema}>
+    <ThemeProvider theme={appTheme}>
       <Box
         component={'main'}
         sx={{
           height: '100vh',
           width: '100vw',
-          backgroundColor: (theme) => theme.palette.primary.main
+          backgroundColor: (theme) => theme.palette.background.main
         }}
       >
         <Layout>
-          <Typography variant="h2" component="h2">
-            Hello WOrd!!!
-          </Typography>
+          <Routes>
+            <Route path="/produtos/create" element={<CreateProduto />} />
+            <Route path="/" element={<ListProduto />} />
+          </Routes>
         </Layout>
       </Box>
     </ThemeProvider>
