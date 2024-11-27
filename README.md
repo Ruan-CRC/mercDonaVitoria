@@ -42,7 +42,7 @@ $ git pull origin main
 $ git checkout -b "nome da branch"
 ```
 
-### PR
+### processo antes do PR
 
 ```bash
 $ git status
@@ -54,4 +54,24 @@ $ git add .
 
 ```bash
 $ git commit -m "commit mensage"
+```
+
+```bash
+$ git checkout main
+```
+
+```bash
+$ git pull origin main
+```
+
+```bash
+$ git checkout "nome da branch"
+```
+
+```bash
+$ git merge
+```
+
+```bash
+$ git push origin "nome da branch"
 ```
