@@ -1,6 +1,6 @@
 # mercdonavitoria
 
-An Electron application with React
+Sistema de Ponto de Venda
 
 ## Recommended IDE Setup
 
@@ -8,7 +8,17 @@ An Electron application with React
 
 ## Project Setup
 
+Use Node >= 18
+
 ### Install
+
+```bash
+$ git clone git@github.com:Ruan-CRC/mercDonaVitoria.git
+```
+
+```bash
+$ cd mercDonaVitoria
+```
 
 ```bash
 $ npm install
@@ -20,15 +30,28 @@ $ npm install
 $ npm run dev
 ```
 
-### Build
+## Pull requests
+
+### cria branch a partir da main
 
 ```bash
-# For windows
-$ npm run build:win
+$ git pull origin main
+```
 
-# For macOS
-$ npm run build:mac
+```bash
+$ git checkout -b "nome da branch"
+```
 
-# For Linux
-$ npm run build:linux
+### PR
+
+```bash
+$ git status
+```
+
+```bash
+$ git add .
+```
+
+```bash
+$ git commit -m "commit mensage"
 ```
