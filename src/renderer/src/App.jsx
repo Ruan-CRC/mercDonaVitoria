@@ -1,21 +1,23 @@
-import { Box, ThemeProvider, createTheme } from '@mui/material'
+import { Box, ThemeProvider } from '@mui/material'
+import { Typography } from '@mui/material'
 import { Layout } from './components/Layout'
-
-const thema = createTheme({})
+import { appThema } from './assets/thema'
 
 function App() {
   return (
-    <ThemeProvider theme={thema}>
+    <ThemeProvider theme={appThema}>
       <Box
         component={'main'}
         sx={{
           height: '100vh',
           width: '100vw',
-          backgroundColor: '#000'
+          backgroundColor: (theme) => theme.palette.primary.main
         }}
       >
         <Layout>
-          <h1>Hello Word!</h1>
+          <Typography variant="h2" component="h2">
+            Hello WOrd!!!
+          </Typography>
         </Layout>
       </Box>
     </ThemeProvider>

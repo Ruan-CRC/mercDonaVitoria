@@ -9,8 +9,7 @@ export function Layout({ children }) {
         maxWidth="lg"
         sx={{
           mt: 4,
-          mb: 4,
-          backgroundColor: '#fff'
+          mb: 4
         }}
       >
         {children}
