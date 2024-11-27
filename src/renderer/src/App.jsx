@@ -1,31 +1,24 @@
-import electronLogo from './assets/electron.svg'
+import { Box, ThemeProvider, createTheme } from '@mui/material'
+import { Layout } from './components/Layout'
+
+const thema = createTheme({})
 
 function App() {
-  const ipcHandle = () => window.electron.ipcRenderer.send('ping')
-
   return (
-    <>
-      <img alt="logo" className="logo" src={electronLogo} />
-      <div className="creator">Powered by Adryan-vite</div>
-      <div className="text">
-        Build an Electron app with <span className="react">React</span>
-      </div>
-      <p className="tip">
-        Please try pressing <code>F12</code> to open the devTool
-      </p>
-      <div className="actions">
-        <div className="action">
-          <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation
-          </a>
-        </div>
-        <div className="action">
-          <a target="_blank" rel="noreferrer" onClick={ipcHandle}>
-            Send IPC
-          </a>
-        </div>
-      </div>
-    </>
+    <ThemeProvider theme={thema}>
+      <Box
+        component={'main'}
+        sx={{
+          height: '100vh',
+          width: '100vw',
+          backgroundColor: '#000'
+        }}
+      >
+        <Layout>
+          <h1>Hello Word!</h1>
+        </Layout>
+      </Box>
+    </ThemeProvider>
   )
 }
 
