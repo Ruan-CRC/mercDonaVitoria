@@ -8,7 +8,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await window.produtos.create({
+      const response = await window.api.produto.create({
         name: 'Produto 1',
         price: 100
       })

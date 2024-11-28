@@ -1,7 +1,28 @@
 const { contextBridge, ipcRenderer } = require('electron/renderer')
 
-contextBridge.exposeInMainWorld('produtos', {
-  create: (arg) => ipcRenderer.invoke('produtos:create', arg),
-  update: (arg) => ipcRenderer.invoke('update', arg),
-  list: (arg) => ipcRenderer.invoke('list', arg)
+contextBridge.exposeInMainWorld('api', {
+  produto: {
+    create: async (produto) => {
+      return ipcRenderer.invoke('produto:create', produto)
+    },
+    update: async (produto) => {
+      return ipcRenderer.invoke('produto:update', produto)
+    }
+  },
+  estoque: {
+    create: async (estoque) => {
+      return ipcRenderer.invoke('estoque:create', estoque)
+    },
+    adicionarProduto: async (estoque) => {
+      return ipcRenderer.invoke('estoque:adicionarProduto', estoque)
+    },
+    removerProduto: async (estoque) => {
+      return ipcRenderer.invoke('estoque:removerProduto', estoque)
+    }
+  },
+  caixa: {
+    create: async (caixa) => {
+      return ipcRenderer.invoke('caixa:create', caixa)
+    }
+  }
 })
