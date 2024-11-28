@@ -50,7 +50,11 @@ app.whenReady().then(() => {
   })
 
   // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.handle('produtos:create', (event, arg) => {
+    console.log([event, arg])
+    const newProdutc = { ...arg, id: 1 }
+    return newProdutc
+  })
 
   createWindow()
 

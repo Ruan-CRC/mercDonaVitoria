@@ -1,11 +1,25 @@
 import { Box, ThemeProvider } from '@mui/material'
 import { Layout } from './components/Layout'
 import { appTheme } from './assets/theme'
-import { Route, Routes } from 'react-router'
-import { CreateProduto } from './features/produtos/CreateProduto'
-import { ListProduto } from './features/produtos/ListProduto'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [pong, setPong] = useState({})
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await window.produtos.create({
+        name: 'Produto 1',
+        price: 100
+      })
+      setPong(response)
+    }
+
+    fetchData()
+  }, [])
+
+  console.log(pong)
+
   return (
     <ThemeProvider theme={appTheme}>
       <Box
@@ -17,10 +31,7 @@ function App() {
         }}
       >
         <Layout>
-          <Routes>
-            <Route path="/produtos/create" element={<CreateProduto />} />
-            <Route path="/" element={<ListProduto />} />
-          </Routes>
+          <h3>lalala</h3>
         </Layout>
       </Box>
     </ThemeProvider>
