@@ -1,6 +1,5 @@
 import { Box, ThemeProvider } from '@mui/material'
-import { Typography } from '@mui/material'
-import { Layout } from './components/Layout'
+import { Layout } from './components/layout/Layout'
 import { appThema } from './assets/thema'
 
 function App() {
@@ -11,14 +10,10 @@ function App() {
         sx={{
           height: '100vh',
           width: '100vw',
-          backgroundColor: (theme) => theme.palette.primary.main
+          backgroundColor: (theme) => theme.palette.text.main
         }}
       >
-        <Layout>
-          <Typography variant="h2" component="h2">
-            Hello WOrd!!!
-          </Typography>
-        </Layout>
+        <Layout></Layout>
       </Box>
     </ThemeProvider>
   )
