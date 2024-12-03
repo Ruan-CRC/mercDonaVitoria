@@ -1,10 +1,17 @@
 import { Box, ThemeProvider } from '@mui/material'
 import { Layout } from './components/layout/Layout'
-import { appThema } from './assets/thema'
+import { appTheme } from './assets/theme'
+// import { Route, Routes } from 'react-router'
+// import { CreateProduto } from './features/produtos/CreateProduto'
+// import { ListProduto } from './features/produtos/ListProduto'
 
 function App() {
+  // <Routes>
+  // <Route path="/produtos/create" element={<CreateProduto />} />
+  // <Route path="/" element={<ListProduto />} />
+  // </Routes>
   return (
-    <ThemeProvider theme={appThema}>
+    <ThemeProvider theme={appTheme}>
       <Box
         component={'main'}
         sx={{
