@@ -1,15 +1,20 @@
 import { Box, ThemeProvider } from '@mui/material'
-import { Layout } from './components/layout/Layout'
 import { appTheme } from './assets/theme'
-// import { Route, Routes } from 'react-router'
-// import { CreateProduto } from './features/produtos/CreateProduto'
+//import { LayoutProvider } from './components/layout/LayoutContext'
+//import { Route, Routes } from 'react-router'
+//import { CreateProduto } from './features/produtos/CreateProduto'
 // import { ListProduto } from './features/produtos/ListProduto'
+import { Caixa } from './features/caixa/Caixa'
+import { Layout } from './components/layout/Layout'
+import { LayoutLeft } from './components/layout/layout-left'
+import { LayoutRight } from './components/layout/layout-right'
 
 function App() {
-  // <Routes>
-  // <Route path="/produtos/create" element={<CreateProduto />} />
-  // <Route path="/" element={<ListProduto />} />
-  // </Routes>
+  //  <LayoutProvider>
+  //  <Routes>
+  //    <Route path="/produtos/create" element={<CreateProduto />} />
+  //  </Routes>
+  //</LayoutProvider>
   return (
     <ThemeProvider theme={appTheme}>
       <Box
@@ -20,7 +25,14 @@ function App() {
           backgroundColor: (theme) => theme.palette.text.main
         }}
       >
-        <Layout></Layout>
+        <Layout>
+          <LayoutLeft>
+            <h1>Menu</h1>
+          </LayoutLeft>
+          <LayoutRight>
+            <Caixa />
+          </LayoutRight>
+        </Layout>
       </Box>
     </ThemeProvider>
   )
