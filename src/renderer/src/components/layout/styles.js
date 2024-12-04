@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const Left = styled.div`
   height: 100%;
-  width: 45%;
+  width: 50%;
   margin-right: 7px;
   background-color: #2a6f97;
   border-radius: 0.8%;
