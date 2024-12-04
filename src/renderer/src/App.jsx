@@ -8,6 +8,7 @@ import { Caixa } from './features/caixa/Caixa'
 import { Layout } from './components/layout/Layout'
 import { LayoutLeft } from './components/layout/layout-left'
 import { LayoutRight } from './components/layout/layout-right'
+import { CaixaLeft } from './features/caixa/left/caixaLeft'
 
 function App() {
   //  <LayoutProvider>
@@ -27,7 +28,7 @@ function App() {
       >
         <Layout>
           <LayoutLeft>
-            <h1>Menu</h1>
+            <CaixaLeft />
           </LayoutLeft>
           <LayoutRight>
             <Caixa />
