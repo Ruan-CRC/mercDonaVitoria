@@ -69,7 +69,7 @@ $ git checkout "nome da branch"
 ```
 
 ```bash
-$ git merge
+$ git merge main
 ```
 
 ```bash
