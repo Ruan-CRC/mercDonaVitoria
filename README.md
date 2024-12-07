@@ -13,7 +13,7 @@ Use Node >= 18
 ### Install
 
 ```bash
-$ git clone git@github.com:Ruan-CRC/mercDonaVitoria.git
+$ git clone https://github.com/Ruan-CRC/mercDonaVitoria.git
 ```
 
 ```bash
