@@ -7,6 +7,9 @@ contextBridge.exposeInMainWorld('api', {
     },
     update: async (produto) => {
       return ipcRenderer.invoke('produto:update', produto)
+    },
+    getByCodigo: async (codigo) => {
+      return ipcRenderer.invoke('produto:getByCodigo', codigo)
     }
   },
   estoque: {

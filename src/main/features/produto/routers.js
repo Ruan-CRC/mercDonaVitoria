@@ -6,4 +6,11 @@ export function produtoRouter() {
     const newProdutc = { ...arg, id: 1 }
     return newProdutc
   })
+  ipcMain.handle('produto:getByCodigo', (event, arg) => {
+    return {
+      codigo: arg,
+      nome: 'Produto 1',
+      precoUnitario: 100
+    }
+  })
 }
