@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import produtoReducer from '../features/produtos/SliceProduto'
+import caixaReducer from '../features/caixa/sliceCaixa'
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    produto: produtoReducer
+    produto: produtoReducer,
+    caixa: caixaReducer.reducer
   }
 })
+
+export default store
