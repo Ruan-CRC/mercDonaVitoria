@@ -1,16 +1,17 @@
 import { ipcMain } from 'electron'
 
 export function produtoRouter() {
+  const produtos = []
+
   ipcMain.handle('produto:create', (event, arg) => {
-    console.log([event, arg])
-    const newProdutc = { ...arg, id: 1 }
-    return newProdutc
+    produtos.push(arg)
   })
   ipcMain.handle('produto:getByCodigo', (event, arg) => {
+    const produto = produtos.find((produto) => produto.codigo === arg)
     return {
-      codigo: arg,
-      nome: 'Produto 1',
-      precoUnitario: 100
+      codigo: produto.codigo,
+      nome: produto.nome,
+      preco: produto.preco
     }
   })
 }

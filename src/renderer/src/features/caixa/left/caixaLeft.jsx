@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { useSelector, useDispatch } from 'react-redux'
 import { addProduto, getProdutoByCodigo } from '../sliceCaixa'
+import { NavLink } from 'react-router'
 
 export const CaixaLeft = () => {
   const [formData, setFormData] = useState({
@@ -68,9 +69,11 @@ export const CaixaLeft = () => {
           <Button onClick={adicionaProdtAoStore} type="submit" variant="contained" color="primary">
             Adicionar Produto
           </Button>
-          <Button onClick={handleSubmit} type="submit" variant="contained" color="primary">
-            Fechar Compra
-          </Button>
+          <NavLink to="/">
+            <Button type="submit" variant="contained" color="primary">
+              Fechar Compra
+            </Button>
+          </NavLink>
         </form>
       </div>
       <footer>Versão Beta</footer>
