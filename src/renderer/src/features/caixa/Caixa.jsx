@@ -1,3 +1,10 @@
+import { CaixaLeft } from './left/caixaLeft'
+
 export function Caixa() {
-  return <h2>Caixa!!!</h2>
+  return (
+    <div>
+      <h2>Caixa</h2>
+      <CaixaLeft />
+    </div>
+  )
 }
