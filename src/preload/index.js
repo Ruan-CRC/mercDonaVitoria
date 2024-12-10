@@ -1,20 +1,31 @@
-import { contextBridge } from 'electron'
-import { electronAPI } from '@electron-toolkit/preload'
+const { contextBridge, ipcRenderer } = require('electron/renderer')
 
-// Custom APIs for renderer
-const api = {}
-
-// Use `contextBridge` APIs to expose Electron APIs to
-// renderer only if context isolation is enabled, otherwise
-// just add to the DOM global.
-if (process.contextIsolated) {
-  try {
-    contextBridge.exposeInMainWorld('electron', electronAPI)
-    contextBridge.exposeInMainWorld('api', api)
-  } catch (error) {
-    console.error(error)
+contextBridge.exposeInMainWorld('api', {
+  produto: {
+    create: async (produto) => {
+      return ipcRenderer.invoke('produto:create', produto)
+    },
+    update: async (produto) => {
+      return ipcRenderer.invoke('produto:update', produto)
+    },
+    getByCodigo: async (codigo) => {
+      return ipcRenderer.invoke('produto:getByCodigo', codigo)
+    }
+  },
+  estoque: {
+    create: async (estoque) => {
+      return ipcRenderer.invoke('estoque:create', estoque)
+    },
+    adicionarProduto: async (estoque) => {
+      return ipcRenderer.invoke('estoque:adicionarProduto', estoque)
+    },
+    removerProduto: async (estoque) => {
+      return ipcRenderer.invoke('estoque:removerProduto', estoque)
+    }
+  },
+  caixa: {
+    create: async (caixa) => {
+      return ipcRenderer.invoke('caixa:create', caixa)
+    }
   }
-} else {
-  window.electron = electronAPI
-  window.api = api
-}
+})
