@@ -16,22 +16,20 @@ export function CaixaRight() {
       const novosProdutos = caixaProdutos
         .map((prodto) => {
           const produto = apiProdutos.find((prod) => prod.codigo === prodto.codigo)
-
           if (!produto) return null
 
-          const valorTotal = produto.precoUnitario * prodto.quantidade
+          const valorTotal = produto.preco * prodto.quantidade
 
           return {
             item: produto.item,
             codigo: produto.codigo,
             nome: produto.nome,
             quantidade: prodto.quantidade,
-            precoUnitario: produto.precoUnitario,
+            precoUnitario: +produto.preco,
             precoTotal: valorTotal
           }
         })
         .filter(Boolean)
-
       setProdutos(novosProdutos)
     }
   }, [caixaProdutos, apiProdutos])
