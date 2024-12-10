@@ -3,7 +3,7 @@ import { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { useSelector, useDispatch } from 'react-redux'
-import { addProduto } from '../sliceCaixa'
+import { addProduto, getProdutoByCodigo } from '../sliceCaixa'
 
 export const CaixaLeft = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +21,13 @@ export const CaixaLeft = () => {
 
   function adicionaProdtAoStore(e) {
     e.preventDefault()
-    dispatch(addProduto(formData))
+    dispatch(getProdutoByCodigo(formData.codigoProd))
+    dispatch(
+      addProduto({
+        codigo: formData.codigoProd,
+        quantidade: formData.quantiddProd
+      })
+    )
     setFormData({ codigoProd: '', quantiddProd: '' })
   }
 
