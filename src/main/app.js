@@ -8,9 +8,10 @@ class App {
   constructor() {}
 
   init() {
+    app.disableHardwareAcceleration()
+
     app.whenReady().then(() => {
       electronApp.setAppUserModelId('com.electron')
-
       app.on('browser-window-created', (_, window) => {
         optimizer.watchWindowShortcuts(window)
       })
@@ -44,7 +45,8 @@ class App {
       ...(process.platform === 'linux' ? { icon } : {}),
       webPreferences: {
         preload: join(__dirname, '../preload/index.js'),
-        sandbox: false
+        sandbox: false,
+        disableHardwareAcceleration: true
       }
     })
 

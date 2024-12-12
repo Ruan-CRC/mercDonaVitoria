@@ -23,6 +23,11 @@ const caixaSlice = createSlice({
       const { codigoProd } = action.payload
       const index = state.findIndex((produto) => produto.codigoProd === codigoProd)
       state.splice(index, 1)
+    },
+    // eslint-disable-next-line no-unused-vars
+    finalizarCompraState(state, action) {
+      state.caixa = []
+      window.api.produto.finalizarCompra(state.caixa)
     }
   },
   extraReducers: (builder) => {
@@ -36,6 +41,6 @@ const caixaSlice = createSlice({
   }
 })
 
-export const { addProduto, removeProduto } = caixaSlice.actions
+export const { addProduto, removeProduto, finalizarCompraState } = caixaSlice.actions
 
-export default caixaSlice
+export default caixaSlice.reducer

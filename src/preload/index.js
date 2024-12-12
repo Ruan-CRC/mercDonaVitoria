@@ -10,6 +10,9 @@ contextBridge.exposeInMainWorld('api', {
     },
     getByCodigo: async (codigo) => {
       return ipcRenderer.invoke('produto:getByCodigo', codigo)
+    },
+    finalizarCompra: (caixa) => {
+      return ipcRenderer.invoke('produto:finalizarCompra', caixa)
     }
   },
   estoque: {

@@ -14,4 +14,7 @@ export function produtoRouter() {
       preco: produto.preco
     }
   })
+  ipcMain.handle('produto:finalizarCompra', (event, arg) => {
+    console.log(arg)
+  })
 }
