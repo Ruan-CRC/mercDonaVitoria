@@ -10,12 +10,44 @@ export function CreateProduto() {
     nome: '',
     preco: 0
   }
+
+  const errorInicialState = {
+    codigo: false,
+    nome: false,
+    preco: false
+  }
   const [produto, setProduto] = useState(produtoEstadoInicial)
+  const [errorForm, setErrorForm] = useState(errorInicialState)
 
   function submitCadastro() {
+    if (hasError()) {
+      setTimeout(() => {
+        setErrorForm(errorInicialState)
+      }, 3000)
+      return
+    }
+
     window.api.produto.create(produto)
 
     setProduto(produtoEstadoInicial)
+  }
+
+  function hasError() {
+    if (produto.codigo === '') {
+      setErrorForm({ ...errorForm, codigo: true })
+      return true
+    }
+
+    if (produto.nome === '') {
+      setErrorForm({ ...errorForm, nome: true })
+      return true
+    }
+
+    if (isNaN(produto.preco)) {
+      setErrorForm({ ...errorForm, preco: true })
+      return true
+    }
+    return false
   }
 
   return (
@@ -31,6 +63,7 @@ export function CreateProduto() {
         onChange={(e) => {
           setProduto({ ...produto, codigo: e.target.value })
         }}
+        error={errorForm.codigo}
       />
       <TextField
         required
@@ -40,6 +73,7 @@ export function CreateProduto() {
         variant="outlined"
         margin="normal"
         value={produto.nome}
+        error={errorForm.nome}
         onChange={(e) => {
           setProduto({ ...produto, nome: e.target.value })
         }}
@@ -52,10 +86,11 @@ export function CreateProduto() {
         variant="outlined"
         margin="normal"
         value={produto.preco}
+        error={errorForm.preco}
         onChange={(e) => {
           setProduto({ ...produto, preco: e.target.value })
         }}
-        helperText="valor numérico"
+        helperText="valor numérico formato 0.00"
       />
       <br />
       <Button onClick={submitCadastro} variant="contained" color="primary">

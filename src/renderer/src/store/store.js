@@ -5,7 +5,7 @@ import caixaReducer from '../features/caixa/sliceCaixa'
 const store = configureStore({
   reducer: {
     produto: produtoReducer,
-    caixa: caixaReducer.reducer
+    caixa: caixaReducer
   }
 })
 
