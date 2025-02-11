@@ -30,48 +30,4 @@ $ npm install
 $ npm run dev
 ```
 
-## Pull requests
 
-### cria branch a partir da main
-
-```bash
-$ git pull origin main
-```
-
-```bash
-$ git checkout -b "nome da branch"
-```
-
-### processo antes do PR
-
-```bash
-$ git status
-```
-
-```bash
-$ git add .
-```
-
-```bash
-$ git commit -m "commit mensage"
-```
-
-```bash
-$ git checkout main
-```
-
-```bash
-$ git pull origin main
-```
-
-```bash
-$ git checkout "nome da branch"
-```
-
-```bash
-$ git merge main
-```
-
-```bash
-$ git push origin "nome da branch"
-```
